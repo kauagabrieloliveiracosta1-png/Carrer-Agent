@@ -1,28 +1,30 @@
 CAREER AGENT — PACOTE 01 (TEMPORADA 2026)
 
-Como abrir:
+COMO ABRIR
 1. Extraia o arquivo ZIP.
 2. Abra Career_Agent_Pacote_01.html no Chrome, Edge ou Firefox.
 3. Inicie uma nova carreira ou continue o save existente.
 4. Escolha as ligas acompanhadas e avance semana a semana.
 
-Novidades desta atualização:
-- Temporada corrigida para 2026, inclusive ao continuar um save anterior.
-- Histórico individual dos jogadores: clubes por onde passaram e estatísticas por temporada.
-- Estatísticas de cada temporada: partidas, gols, assistências e nota média.
-- Acesso e rebaixamento entre as Séries A e B: quatro primeiros da Série B sobem e quatro últimos da Série A descem ao fim da temporada.
-- Indicadores visuais de acesso e rebaixamento na tabela das ligas.
-- Orçamento, salários e taxas agora aparecem em euros inteiros, com separador de milhar (ex.: 0,06 unidade interna = € 6.000).
-- Campos de investimento e propostas de transferência também recebem valores em euros inteiros.
+NOVIDADES DESTA ATUALIZAÇÃO
+- A carreira começa na semana 0, em período de pré-temporada.
+- O campeonato começa na semana 1 e termina na semana 38, com 38 rodadas.
+- A primeira janela abre nas semanas 20 a 25.
+- A segunda janela abre na semana 38, atravessa a virada do ano e fecha após a semana 6 do ano seguinte.
+- A reputação aumenta em 2 pontos no início de cada ano e na abertura de cada uma das duas janelas (respeitando o limite de 100).
+- A tela de transferências não permite mais enviar propostas aos clubes: somente os clubes geram ofertas para os jogadores da agência, e o agente decide aceitar ou recusar.
+- O portfólio mostra as estatísticas da temporada atual de cada jogador: partidas, gols, assistências e nota média.
+- O histórico individual continua registrando clubes anteriores e estatísticas das temporadas passadas.
 
-Sistemas já presentes:
-- Cada avanço de semana simula uma rodada de partidas.
-- Tabelas das ligas brasileiras acompanhadas atualizadas com resultados simulados.
-- Séries A e B com 20 clubes cada no universo simulado do jogo.
-- Clubes podem enviar propostas de transferência ou empréstimo por jogadores representados.
-- O agente começa com dois jovens fictícios aleatórios disponíveis para contratar ou excluir.
-- A agência encontra mais dois jovens a cada abertura de janela (semanas 20 e 38).
-- Calendário de 46 semanas; janelas nas semanas 20–25 e 38–46.
+SISTEMAS PRESENTES
+- Cada semana de campeonato simula uma rodada de partidas.
+- As tabelas das ligas brasileiras acompanhadas são atualizadas com os resultados simulados.
+- As Séries A e B têm 20 clubes cada no universo simulado do jogo.
+- Quatro clubes sobem da Série B e quatro clubes descem da Série A ao final da temporada.
+- A tabela mostra indicadores visuais de acesso e rebaixamento.
+- A agência começa com dois jovens fictícios aleatórios disponíveis para contratar ou excluir.
+- A agência encontra mais dois jovens a cada abertura de janela.
+- Orçamento, salários e taxas são exibidos em euros inteiros, com separador de milhar.
 
-Importante:
-A temporada 2026 e a composição das Séries A e B são parte do universo simulado do jogo. Resultados, ofertas, tabelas e estatísticas são gerados localmente, não representam dados oficiais ou partidas reais. O jogo salva os dados no armazenamento local do navegador. Para iniciar do zero, use "Nova carreira".
+IMPORTANTE
+A temporada 2026 e a composição das Séries A e B fazem parte do universo simulado do jogo. Resultados, ofertas, tabelas e estatísticas são gerados localmente e não representam dados oficiais ou partidas reais. O jogo salva os dados no armazenamento local do navegador. Para iniciar do zero, use "Nova carreira".

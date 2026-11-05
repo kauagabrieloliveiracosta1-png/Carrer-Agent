@@ -1,19 +1,18 @@
 CAREER AGENT — PACOTE JOGÁVEL 01 (ATUALIZADO)
 
-Como jogar:
-1. Extraia o ZIP.
-2. Abra Career_Agent_Pacote_01.html em um navegador atualizado.
-3. A página sempre abre no MENU PRINCIPAL, inclusive após atualizar/recarregar.
-4. Escolha Nova carreira ou Continuar carreira.
-5. A carreira é salva localmente neste navegador.
+Como abrir:
+1. Extraia o arquivo ZIP.
+2. Abra Career_Agent_Pacote_01.html em um navegador moderno (Chrome, Edge ou Firefox).
 
-Alterações desta atualização:
-- O save antigo do Atlético Aurora é removido automaticamente quando esta versão é aberta.
-- O jogo sempre inicia no menu principal após atualizar a página.
-- Nova carreira começa com o clube fictício União Metropolitana.
-- Continuar carreira carrega o último save válido.
-- Adicionada opção para excluir a carreira salva no menu principal.
+Novidades desta atualização:
+- Tela de escolha de clube ao iniciar uma nova carreira.
+- Seis clubes fictícios disponíveis, com força esportiva, valor estimado, caixa e perfil financeiro diferentes.
+- Cada clube inicia com condições financeiras e esportivas próprias.
+- Botão “Menu principal” no cabeçalho durante a carreira.
+- Ao voltar ao menu principal, a carreira atual é salva automaticamente.
+- Botão de retorno ao menu principal também na tela de seleção de clube.
 
 Observações:
-- Protótipo com dados fictícios, sem servidor ou sincronização online.
-- O save fica no armazenamento local do navegador/dispositivo.
+- Este é um protótipo local, com clubes e dados fictícios.
+- O progresso é salvo no armazenamento local do navegador e fica associado ao navegador/dispositivo utilizado.
+- Para continuar uma carreira, abra o HTML no mesmo navegador e dispositivo e selecione “Continuar carreira”.

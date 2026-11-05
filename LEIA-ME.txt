@@ -1,27 +1,25 @@
 CAREER AGENT — PACOTE ATUALIZADO
-Simulador de empresário de futebol (protótipo HTML local)
+Simulador local de empresário de futebol (HTML + CSS + JavaScript).
 
-NOVA CONFIGURAÇÃO DE CARREIRA
-- Ao iniciar uma nova carreira, informe o nome do agente e o nome da agência.
-- Escolha uma ou mais ligas para acompanhar.
-- Não existe clube de referência nem controle de clube.
-- A carreira começa sem jogadores representados: o jogador escolhe quem deseja agenciar.
+NOVIDADES DESTA VERSÃO
+- Aba Prospecção removida. O recrutamento de jovens fictícios permanece em “Jovens disponíveis”, onde o jogador negocia contratos de representação.
+- Nova aba “Transferências”: permite escolher um atleta representado, clube de destino, taxa, salário e duração do contrato. A proposta pode ser aceita ou recusada; quando aprovada, o clube do atleta, salário, contrato, valor estimado e comissão da agência são atualizados.
+- Nova aba “Tabela das ligas”: mostra uma classificação simulada para cada liga selecionada na criação da agência.
+- Calendário anual de 46 semanas com avanço semanal.
+- 1ª janela: semanas 20 a 25.
+- Semana 38: encerramento da temporada e abertura da 2ª janela.
+- 2ª janela: semanas 38 a 46.
+- Na passagem da semana 46 para a semana 1 do novo ano, a janela fecha.
+- O calendário, as propostas e as transferências são salvos no armazenamento local do navegador.
 
-JOVENS DISPONÍVEIS
-- A aba "Jovens disponíveis" apresenta atletas jovens fictícios.
-- Cada jovem possui idade, posição, clube, avaliação, potencial, valor estimado e situação contratual.
-- Use "Negociar representação" para tentar contratá-lo para seu portfólio. A aceitação é simulada.
-- Os jogadores aceitos aparecem em "Meus jogadores".
-
-OUTRAS FUNÇÕES
-- Prospecção de atletas reais demonstrativos (dados de jogo simplificados).
-- Gestão de contratos de representação, negociações, finanças, calendário e notícias.
-- Salvamento local no navegador; use o botão Salvar e o Menu principal.
-
-COMO ABRIR
+COMO USAR
 1. Extraia o ZIP.
-2. Abra Career_Agent_Pacote_01.html em um navegador atualizado.
-3. Clique em Nova carreira de empresário e configure sua agência.
+2. Abra Career_Agent_Pacote_01.html em um navegador moderno (Chrome, Edge ou Firefox).
+3. Crie ou continue sua agência.
+4. Contrate jovens fictícios em “Jovens disponíveis”.
+5. Avance as semanas pelo “Calendário” e negocie transferências durante as janelas abertas.
 
-AVISO
-Este é um protótipo local. Não possui servidor, mercado online ou base oficial sincronizada. Os jovens da aba de negociação são personagens fictícios. Valores e avaliações são parâmetros de simulação.
+OBSERVAÇÕES
+- Este é um protótipo local, sem servidor ou conexão com dados oficiais ao vivo.
+- Clubes, tabelas, valores e respostas de negociação são simulados. A tabela das ligas não representa classificação oficial em tempo real.
+- O save fica no navegador e dispositivo em que o jogo é aberto.

@@ -1,30 +1,26 @@
-CAREER AGENT — PACOTE 01 (TEMPORADA 2026)
+CAREER AGENT — ABA CLUBES
 
-COMO ABRIR
+Como abrir:
 1. Extraia o arquivo ZIP.
-2. Abra Career_Agent_Pacote_01.html no Chrome, Edge ou Firefox.
-3. Inicie uma nova carreira ou continue o save existente.
-4. Escolha as ligas acompanhadas e avance semana a semana.
+2. Abra Career_Agent_Clubes.html no Chrome, Edge ou Firefox.
+3. O progresso da carreira é salvo localmente no navegador.
 
-NOVIDADES DESTA ATUALIZAÇÃO
-- A carreira começa na semana 0, em período de pré-temporada.
-- O campeonato começa na semana 1 e termina na semana 38, com 38 rodadas.
-- A primeira janela abre nas semanas 20 a 25.
-- A segunda janela abre na semana 38, atravessa a virada do ano e fecha após a semana 6 do ano seguinte.
-- A reputação aumenta em 2 pontos no início de cada ano e na abertura de cada uma das duas janelas (respeitando o limite de 100).
-- A tela de transferências não permite mais enviar propostas aos clubes: somente os clubes geram ofertas para os jogadores da agência, e o agente decide aceitar ou recusar.
-- O portfólio mostra as estatísticas da temporada atual de cada jogador: partidas, gols, assistências e nota média.
-- O histórico individual continua registrando clubes anteriores e estatísticas das temporadas passadas.
+Aba Clubes:
+- Ranking de força dos clubes cadastrados na base do jogo.
+- Para clubes brasileiros, utiliza como referência os pontos do Ranking Nacional de Clubes (RNC) da CBF 2026, normalizados para uma escala de 0 a 100.
+- Para clubes internacionais, utiliza índices públicos de força global indicados na tela.
+- Clubes sem referência direta recebem uma estimativa interna.
+- A classificação de força é separada da posição na tabela da carreira.
 
-SISTEMAS PRESENTES
-- Cada semana de campeonato simula uma rodada de partidas.
-- As tabelas das ligas brasileiras acompanhadas são atualizadas com os resultados simulados.
-- As Séries A e B têm 20 clubes cada no universo simulado do jogo.
-- Quatro clubes sobem da Série B e quatro clubes descem da Série A ao final da temporada.
-- A tabela mostra indicadores visuais de acesso e rebaixamento.
-- A agência começa com dois jovens fictícios aleatórios disponíveis para contratar ou excluir.
-- A agência encontra mais dois jovens a cada abertura de janela.
-- Orçamento, salários e taxas são exibidos em euros inteiros, com separador de milhar.
+Ficha individual do clube:
+- Informações gerais, estádio e ano de fundação quando cadastrados.
+- Força estimada e posição na liga.
+- Estimativas demonstrativas de orçamento, folha salarial e receita.
+- Jogadores que constam na base local do jogo e atletas da sua agência que atuam pelo clube.
+- Resultados e jogos registrados na temporada simulada.
 
-IMPORTANTE
-A temporada 2026 e a composição das Séries A e B fazem parte do universo simulado do jogo. Resultados, ofertas, tabelas e estatísticas são gerados localmente e não representam dados oficiais ou partidas reais. O jogo salva os dados no armazenamento local do navegador. Para iniciar do zero, use "Nova carreira".
+Importante:
+- Os valores financeiros apresentados na ficha são estimativas para a simulação, não balanços oficiais.
+- A lista de elenco mostra somente os atletas existentes na base local do protótipo; ainda não representa o elenco oficial completo de cada clube.
+- As partidas exibidas são geradas pela simulação da carreira, não resultados ao vivo.
+- O ranking da CBF mede desempenho em competições nacionais ao longo de cinco anos; não é, por si só, uma medida universal de força técnica. O índice de força do jogo combina referências disponíveis para fins de gameplay.

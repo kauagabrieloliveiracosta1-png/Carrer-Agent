@@ -1,0 +1,14 @@
+CAREER AGENT — PACOTE JOGÁVEL 01
+
+Como jogar:
+1. Baixe e extraia o pacote ZIP.
+2. Abra Career_Agent_Pacote_01.html em um navegador atualizado (Chrome, Edge ou Firefox).
+3. O jogo funciona localmente, sem instalação e sem internet.
+4. Use o menu para administrar o clube, contratar dirigentes, gerir elenco, transferências, investimentos, finanças e calendário.
+5. O botão Salvar e o salvamento automático armazenam a carreira no armazenamento local do navegador.
+
+Observações:
+- É um protótipo inicial com dados fictícios.
+- A carreira é salva no navegador/dispositivo em que foi iniciada.
+- Não há servidor, base de dados online ou sincronização entre dispositivos.
+- Algumas decisões e resultados são simulados; ainda não representam uma IA completa.

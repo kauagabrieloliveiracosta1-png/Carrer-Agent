@@ -1,18 +1,14 @@
-CAREER AGENT — PACOTE JOGÁVEL 01 (ATUALIZADO)
+CAREER AGENT — PACOTE JOGÁVEL (SIMULADOR DE EMPRESÁRIO)
 
 Como abrir:
-1. Extraia o arquivo ZIP.
-2. Abra Career_Agent_Pacote_01.html em um navegador moderno (Chrome, Edge ou Firefox).
+1. Extraia o ZIP.
+2. Abra Career_Agent_Pacote_01.html no Chrome, Edge ou Firefox.
+3. Clique em Nova carreira de empresário.
+4. Escolha um clube real como clube de referência do seu mercado inicial. Você NÃO compra nem administra o clube.
+5. Use Prospecção para oferecer contratos de representação a jogadores.
+6. Em Meus jogadores, acompanhe seus atletas e renove ou encerre contratos.
+7. Em Negociações, envie propostas aos clubes e aceite ou recuse acordos.
 
-Novidades desta atualização:
-- Tela de escolha de clube ao iniciar uma nova carreira.
-- Seis clubes fictícios disponíveis, com força esportiva, valor estimado, caixa e perfil financeiro diferentes.
-- Cada clube inicia com condições financeiras e esportivas próprias.
-- Botão “Menu principal” no cabeçalho durante a carreira.
-- Ao voltar ao menu principal, a carreira atual é salva automaticamente.
-- Botão de retorno ao menu principal também na tela de seleção de clube.
+O jogo é um protótipo local em HTML/CSS/JavaScript. O salvamento é feito no armazenamento local do navegador e não sincroniza entre dispositivos.
 
-Observações:
-- Este é um protótipo local, com clubes e dados fictícios.
-- O progresso é salvo no armazenamento local do navegador e fica associado ao navegador/dispositivo utilizado.
-- Para continuar uma carreira, abra o HTML no mesmo navegador e dispositivo e selecione “Continuar carreira”.
+Os clubes listados são reais. Os escudos exibidos nesta versão são representações gráficas simplificadas com as siglas dos clubes, não reproduções oficiais. Os jogadores listados são atletas reais e os vínculos de clubes foram montados como base demonstrativa; valores, notas e atributos são estimativas de jogo e não dados oficiais.

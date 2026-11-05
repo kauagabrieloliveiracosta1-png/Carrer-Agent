@@ -1,14 +1,27 @@
-CAREER AGENT — PACOTE JOGÁVEL (SIMULADOR DE EMPRESÁRIO)
+CAREER AGENT — PACOTE ATUALIZADO
+Simulador de empresário de futebol (protótipo HTML local)
 
-Como abrir:
+NOVA CONFIGURAÇÃO DE CARREIRA
+- Ao iniciar uma nova carreira, informe o nome do agente e o nome da agência.
+- Escolha uma ou mais ligas para acompanhar.
+- Não existe clube de referência nem controle de clube.
+- A carreira começa sem jogadores representados: o jogador escolhe quem deseja agenciar.
+
+JOVENS DISPONÍVEIS
+- A aba "Jovens disponíveis" apresenta atletas jovens fictícios.
+- Cada jovem possui idade, posição, clube, avaliação, potencial, valor estimado e situação contratual.
+- Use "Negociar representação" para tentar contratá-lo para seu portfólio. A aceitação é simulada.
+- Os jogadores aceitos aparecem em "Meus jogadores".
+
+OUTRAS FUNÇÕES
+- Prospecção de atletas reais demonstrativos (dados de jogo simplificados).
+- Gestão de contratos de representação, negociações, finanças, calendário e notícias.
+- Salvamento local no navegador; use o botão Salvar e o Menu principal.
+
+COMO ABRIR
 1. Extraia o ZIP.
-2. Abra Career_Agent_Pacote_01.html no Chrome, Edge ou Firefox.
-3. Clique em Nova carreira de empresário.
-4. Escolha um clube real como clube de referência do seu mercado inicial. Você NÃO compra nem administra o clube.
-5. Use Prospecção para oferecer contratos de representação a jogadores.
-6. Em Meus jogadores, acompanhe seus atletas e renove ou encerre contratos.
-7. Em Negociações, envie propostas aos clubes e aceite ou recuse acordos.
+2. Abra Career_Agent_Pacote_01.html em um navegador atualizado.
+3. Clique em Nova carreira de empresário e configure sua agência.
 
-O jogo é um protótipo local em HTML/CSS/JavaScript. O salvamento é feito no armazenamento local do navegador e não sincroniza entre dispositivos.
-
-Os clubes listados são reais. Os escudos exibidos nesta versão são representações gráficas simplificadas com as siglas dos clubes, não reproduções oficiais. Os jogadores listados são atletas reais e os vínculos de clubes foram montados como base demonstrativa; valores, notas e atributos são estimativas de jogo e não dados oficiais.
+AVISO
+Este é um protótipo local. Não possui servidor, mercado online ou base oficial sincronizada. Os jovens da aba de negociação são personagens fictícios. Valores e avaliações são parâmetros de simulação.

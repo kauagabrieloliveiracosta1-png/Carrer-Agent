@@ -12,7 +12,7 @@ button,input,select{font:inherit}button{cursor:pointer;border:1px solid var(--li
 .layout{display:grid;grid-template-columns:235px 1fr;min-height:calc(100vh - 67px)}aside{padding:18px 12px;border-right:1px solid var(--line);background:#0e192a}.navgroup{font-size:11px;color:#7488a6;text-transform:uppercase;letter-spacing:.12em;padding:12px 10px 6px}.nav{display:flex;gap:10px;align-items:center;width:100%;text-align:left;background:transparent;border-color:transparent;color:#b9c8dd;margin:2px 0}.nav.active{background:#1c3049;border-color:#365273;color:white}.nav .ico{width:20px;text-align:center}.main{padding:24px;min-width:0}.pagehead{display:flex;justify-content:space-between;align-items:flex-start;gap:15px;margin-bottom:20px}.eyebrow{color:var(--accent);font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase}h1{font-size:27px;margin:3px 0 5px}h2{font-size:18px;margin:0 0 14px}h3{font-size:15px;margin:0 0 8px}.muted{color:var(--muted)}.small{font-size:12px}.grid{display:grid;gap:14px}.stats{grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:16px}.cols{grid-template-columns:1.2fr .8fr}.three{grid-template-columns:repeat(3,minmax(0,1fr))}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:17px;min-width:0}.statlabel{font-size:12px;color:var(--muted)}.statvalue{font-size:25px;font-weight:850;margin-top:4px}.green{color:var(--accent)}.gold{color:var(--gold)}.red{color:var(--red)}.row{display:flex;justify-content:space-between;gap:12px;align-items:center}.stack{display:grid;gap:11px}.divider{height:1px;background:var(--line);margin:12px 0}
 label{display:block;color:var(--muted);font-size:12px;margin:0 0 5px}input,select{width:100%;padding:10px 11px;border-radius:9px;border:1px solid var(--line);background:#0c1728;color:var(--text);outline:none}input:focus,select:focus{border-color:var(--blue)}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.actions{display:flex;gap:8px;flex-wrap:wrap}.pill{display:inline-flex;padding:4px 8px;border-radius:20px;background:#203b37;color:#9ce8c5;font-size:11px;font-weight:750}.pill.warn{background:#443922;color:#f1d28b}.pill.bad{background:#492a36;color:#ffabab}.bar{height:8px;background:#27364e;border-radius:20px;overflow:hidden}.bar>i{display:block;height:100%;background:var(--accent);border-radius:20px}.list{display:grid;gap:9px}.item{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #26364e}.item:last-child{border:0}.log{max-height:260px;overflow:auto}.logline{padding:8px 0;border-bottom:1px solid #26364e;font-size:13px}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:11px 8px;border-bottom:1px solid var(--line)}th{color:var(--muted);font-weight:650}.notice{border-left:3px solid var(--gold);padding:9px 12px;background:#20283a;border-radius:7px;color:#d9e3f3;font-size:13px}.empty{padding:22px;text-align:center;color:var(--muted)}
-.mobilebar{display:none}.footer{padding:18px 24px;color:#7587a3;font-size:11px;border-top:1px solid var(--line)}
+.mainmenu{min-height:calc(100vh - 150px);display:grid;place-items:center;background:radial-gradient(ellipse at 50% 15%,#1b3550 0%,#0b1220 62%);padding:28px}.menuwrap{width:min(760px,100%);text-align:center}.menulogo{font-size:clamp(38px,8vw,68px);font-weight:950;letter-spacing:.09em;margin:8px 0}.menulogo span{color:var(--accent)}.menusub{color:var(--muted);letter-spacing:.18em;text-transform:uppercase;font-size:11px}.menucard{margin:28px auto 0;max-width:430px;background:#121d30eF;border:1px solid var(--line);border-radius:18px;padding:22px;text-align:left;box-shadow:0 24px 70px #0006}.menucard button{width:100%;margin-top:10px;padding:13px}.menufoot{margin-top:20px;color:#8193ad;font-size:12px}.mobilebar{display:none}.footer{padding:18px 24px;color:#7587a3;font-size:11px;border-top:1px solid var(--line)}
 @media(max-width:850px){.layout{grid-template-columns:1fr}aside{display:flex;overflow:auto;border-right:0;border-bottom:1px solid var(--line);padding:8px;gap:5px;position:sticky;top:65px;z-index:3}.navgroup{display:none}.nav{white-space:nowrap;width:auto;margin:0;padding:9px}.main{padding:16px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.cols,.three{grid-template-columns:1fr}.top{padding:14px}.topmeta{gap:7px}.topmeta .hide{display:none}}
 @media(max-width:480px){.statvalue{font-size:21px}.formgrid{grid-template-columns:1fr}.pagehead{display:block}.pagehead .actions{margin-top:12px}}
 </style>
@@ -38,10 +38,22 @@ const initial=()=>({
  players:[{name:'Lucas Ferreira',pos:'ATA',age:23,rating:76,value:8.5,salary:.12},{name:'Gabriel Costa',pos:'MEI',age:25,rating:79,value:11,salary:.16},{name:'Matheus Silva',pos:'ZAG',age:28,rating:73,value:5.5,salary:.10},{name:'Rafael Mendes',pos:'GOL',age:24,rating:75,value:6,salary:.09}],
  transferOffers:[],sponsors:[{name:'Nexa Sports',value:1.2,months:6}],calendar:[],seasonMatches:0,wins:0,draws:0,losses:0,championshipPoints:0
 });
-let S=loadGame()||initial();
-function loadGame(){try{return JSON.parse(localStorage.getItem('careerAgentSave'))}catch(e){return null}}
-function saveGame(){localStorage.setItem('careerAgentSave',JSON.stringify(S));document.getElementById('saveStatus').textContent='Salvo às '+new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});toast('Carreira salva neste navegador.')}
-function autoSave(){localStorage.setItem('careerAgentSave',JSON.stringify(S));}
+function loadGame(){
+ try {
+  const saved=JSON.parse(localStorage.getItem('careerAgentSave'));
+  // Remove o save antigo de demonstração do Atlético Aurora uma única vez.
+  if(saved && String(saved.club||'').trim().toLowerCase()==='atlético aurora'){
+   localStorage.removeItem('careerAgentSave');
+   return null;
+  }
+  return saved;
+ } catch(e){ localStorage.removeItem('careerAgentSave'); return null; }
+}
+let savedCareer=loadGame();
+let S=savedCareer||initial();
+S.page='mainmenu';
+function saveGame(){localStorage.setItem('careerAgentSave',JSON.stringify(S));savedCareer={...S};document.getElementById('saveStatus').textContent='Salvo às '+new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});toast('Carreira salva neste navegador.')}
+function autoSave(){localStorage.setItem('careerAgentSave',JSON.stringify(S));savedCareer={...S};}
 function toast(msg){let el=document.getElementById('toast');if(!el){el=document.createElement('div');el.id='toast';el.style.cssText='position:fixed;bottom:20px;right:20px;background:#203b37;border:1px solid #42c58a;padding:12px 16px;border-radius:10px;z-index:10;color:white;box-shadow:0 8px 30px #0008';document.body.appendChild(el)}el.textContent=msg;el.style.display='block';clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>el.style.display='none',2500)}
 function log(msg){S.log.unshift(msg);S.log=S.log.slice(0,30);S.news.unshift(msg);S.news=S.news.slice(0,20)}
 const navItems=[['dashboard','⌂','Visão geral','CLUBE'],['board','♙','Diretoria'],['sport','⚽','Departamento de futebol'],['squad','♧','Elenco'],['transfers','⇄','Mercado de transferências'],['invest','▦','Investimentos','GESTÃO'],['finance','€','Finanças'],['strategy','◎','Estratégia'],['ownership','♢','Propriedade'],['calendar','▦','Calendário'],['news','▤','Notícias'],['history','◷','Histórico']];
@@ -52,12 +64,37 @@ function stat(label,value,sub='',color=''){return `<div class="card"><div class=
 function card(title,body){return `<section class="card"><h2>${title}</h2>${body}</section>`}
 function row(a,b){return `<div class="item"><span class="muted">${a}</span><strong>${b}</strong></div>`}
 function render(){
- renderNav();
+ const aside=document.getElementById('nav');
+ const main=document.getElementById('main');
+ const topSave=document.querySelector('.top button');
  const names=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+ if(S.page==='mainmenu'){
+  aside.style.display='none';
+  document.querySelector('.layout').style.gridTemplateColumns='1fr';
+  document.getElementById('dateTop').textContent='Sua próxima carreira começa aqui';
+  document.getElementById('saveStatus').textContent=savedCareer?'Carreira encontrada':'Nenhuma carreira salva';
+  if(topSave) topSave.style.display='none';
+  main.innerHTML=mainMenu();
+  return;
+ }
+ aside.style.display='';
+ document.querySelector('.layout').style.gridTemplateColumns='';
+ if(topSave) topSave.style.display='';
+ renderNav();
  document.getElementById('dateTop').textContent=`Temporada ${S.year} • ${names[S.month]}`;
  const pages={dashboard:dashboard,board:board,sport:sport,squad:squad,transfers:transfers,invest:invest,finance:finance,strategy:strategy,ownership:ownership,calendar:calendar,news:news,history:history};
- document.getElementById('main').innerHTML=(pages[S.page]||dashboard)();
+ main.innerHTML=(pages[S.page]||dashboard)();
 }
+function mainMenu(){
+ const has=!!savedCareer;
+ return `<div class="mainmenu"><div class="menuwrap"><div class="menusub">Simulador de gestão do futebol</div><div class="menulogo">CAREER <span>AGENT</span></div><div class="muted">Construa seu império no futebol.</div><div class="menucard"><div class="eyebrow">Menu principal</div><h2 style="font-size:23px;margin:5px 0 3px">Bem-vindo, proprietário</h2><div class="muted small">Escolha como deseja continuar.</div><button class="primary" onclick="startNewCareer()">Nova carreira</button><button ${has?'':'disabled'} onclick="continueCareer()">Continuar carreira${has?' — '+(savedCareer.club||'Meu clube'):''}</button><button onclick="showAbout()">Sobre o jogo</button>${has?'<button class="danger" onclick="deleteCareer()">Excluir carreira salva</button>':''}</div><div class="menufoot">PACOTE JOGÁVEL 01 • Protótipo local</div></div></div>`;
+}
+function startNewCareer(){
+ S=initial(); S.club='União Metropolitana'; S.news=['Você iniciou uma nova carreira como proprietário-investidor.']; S.log=['Nova carreira iniciada.']; S.page='dashboard'; savedCareer=null; autoSave(); render(); toast('Nova carreira iniciada.');
+}
+function continueCareer(){if(!savedCareer)return;S={...initial(),...savedCareer,page:'dashboard'};render();}
+function deleteCareer(){if(!confirm('Excluir definitivamente a carreira salva neste navegador?'))return;localStorage.removeItem('careerAgentSave');savedCareer=null;S=initial();S.page='mainmenu';render();toast('Carreira salva excluída.');}
+function showAbout(){alert('Career Agent — Pacote Jogável 01\nProtótipo de gestão de um clube de futebol. Dados fictícios e salvamento local no navegador.');}
 function dashboard(){return head('Painel do proprietário',''+S.club,'Você é o dono e investidor. A diretoria executa as operações diárias.',`<div class="actions"><button class="primary" onclick="advanceMonth()">Avançar mês</button></div>`)+
 `<div class="grid stats">${stat('Participação',S.stake+'%','Controle acionário')}${stat('Valor estimado',fmt(S.clubValue),'Avaliação simulada','green')}${stat('Caixa do clube',fmt(S.cash),'Disponibilidade')}${stat('Dívidas',fmt(S.debt),'Obrigações financeiras',S.debt>15?'red':'')}</div>
 <div class="grid cols">${card('Indicadores do clube',`<div class="stack">${row('Força esportiva',S.sport+'/100')}<div class="bar"><i style="width:${S.sport}%"></i></div>${row('Satisfação interna',S.morale+'/100')}<div class="bar"><i style="width:${S.morale}%"></i></div>${row('Reputação do proprietário',S.reputation+'/100')}${row('Diretor executivo',S.ceo)}${row('Treinador',S.coach)}</div>`)}
@@ -112,7 +149,7 @@ function sellPlayer(i){let p=S.players[i];if(!p)return;let fee=p.value*.9;S.play
 function advanceMonth(){let salary=S.staff.reduce((a,p)=>a+p.salary,0),monthly=S.revenue-S.cost;S.cash+=monthly;S.debt=Math.max(0,S.debt+(monthly<0?Math.abs(monthly)*.25:0));S.morale=Math.max(0,Math.min(100,S.morale+(monthly>=0?2:-4)));let performance=S.sport+S.coachRating-100;let win=Math.random()<Math.max(.25,Math.min(.75,.5+performance/250));S.seasonMatches++;if(win){S.wins++;S.championshipPoints+=3;S.sport=Math.min(100,S.sport+1)}else if(Math.random()<.45){S.draws++;S.championshipPoints++}else{S.losses++;S.sport=Math.max(1,S.sport-1)}
 S.clubValue=Math.max(5,S.clubValue+(monthly>=0?.35:-.25)+(win?.35:-.1));S.reputation=Math.max(0,Math.min(100,S.reputation+(win?1:0)));S.month++;if(S.month>=12){S.month=0;S.year++;log(`Temporada ${S.year-1} encerrada: ${S.wins} vitórias, ${S.draws} empates e ${S.losses} derrotas.`);S.wins=0;S.draws=0;S.losses=0;S.seasonMatches=0;S.championshipPoints=0}
 log(`Relatório mensal: resultado ${monthly>=0?'+':''}${fmt(monthly)}. ${win?'Vitória no jogo do mês.':'A equipe não venceu o jogo do mês.'}`);autoSave();render()}
-function resetGame(){if(confirm('Apagar a carreira salva e começar novamente?')){localStorage.removeItem('careerAgentSave');S=initial();render()}}
+function resetGame(){if(confirm('Apagar a carreira salva e começar novamente?')){localStorage.removeItem('careerAgentSave');savedCareer=null;S=initial();S.page='mainmenu';render()}}
 render();
 </script>
 </body>

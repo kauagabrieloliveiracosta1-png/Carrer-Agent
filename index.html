@@ -34,6 +34,26 @@
 .league-art.seriea{background:linear-gradient(135deg,#111c75,#092d9a 65%,#1246ca);color:#fff;border:1px solid #2479ff;border-radius:8px}.seriea .league-art-head h2{font-size:clamp(34px,6vw,58px);text-align:left;padding-left:10px}.seriea .league-brand{color:#9cecff;text-align:left;padding-left:12px}.seriea .league-art-table th{background:#11176f;color:#fff;border:0}.seriea .league-art-table td{border:0;border-bottom:4px solid #1736b5;background:#f9fbff;color:#11154e}.seriea .league-art-table .pos{background:#141a80;color:#fff}.seriea .league-art-table .team{font-weight:900}.seriea .league-art-table .pts{background:#20d7d0;color:#062a68}.seriea footer{margin-top:15px;text-align:right;color:#a9f7ff;font-weight:900;letter-spacing:.12em}
 @media(max-width:650px){.league-art{padding:12px}.league-art.premier{padding:14px}.league-art-table{min-width:500px}.league-art-table th,.league-art-table td{padding:7px 5px}}
 
+
+.ucl-card{overflow:hidden;background:linear-gradient(145deg,#071a63,#061044 70%,#080b32);border:1px solid #244bd1}
+.ucl-head{display:flex;justify-content:space-between;gap:14px;align-items:center;padding:8px 4px 16px}
+.ucl-head h2{font-size:24px;margin:4px 0;color:#fff}.ucl-head p{margin:0;color:#b9c9ff;font-size:12px}
+.ucl-layout{display:grid;grid-template-columns:minmax(0,2fr) minmax(190px,.8fr);gap:14px}
+.ucl-table-wrap{overflow:auto;border:1px solid #345bd4;border-radius:9px}
+.ucl-table{width:100%;border-collapse:collapse;background:#09227d;color:#fff;font-size:12px}
+.ucl-table th{background:#07164d;color:#b9d4ff;text-align:left;padding:9px 8px;white-space:nowrap}
+.ucl-table td{padding:6px 8px;border-bottom:1px solid #2446b5;white-space:nowrap}
+.ucl-table tbody tr:nth-child(odd){background:#1239bc}.ucl-table tbody tr:nth-child(even){background:#09288e}
+.ucl-table td:first-child{font-weight:900;color:#50dfff;width:36px}.ucl-table td:last-child{font-weight:900;color:#5eeaff}
+.ucl-club{display:flex;align-items:center;gap:8px}.ucl-club img{width:23px;height:23px;object-fit:contain}
+.ucl-direct{box-shadow:inset 4px 0 #4de1a1}.ucl-playoff{box-shadow:inset 4px 0 #f6c453}.ucl-out{box-shadow:inset 4px 0 #ee6b7c;opacity:.78}
+.ucl-legend{display:flex;flex-wrap:wrap;gap:12px;padding:10px 2px;color:#d8e3ff;font-size:11px}.ucl-legend span{display:flex;align-items:center;gap:5px}.ucl-legend i{width:9px;height:9px;border-radius:2px;background:#4de1a1}.ucl-legend i.playoff{background:#f6c453}.ucl-legend i.out{background:#ee6b7c}
+.ucl-side{background:#08164b;border:1px solid #2948a6;border-radius:9px;padding:14px;color:#cbd8ff;font-size:12px;align-self:start}.ucl-side h3{color:#fff;margin:0 0 10px}.ucl-side p{line-height:1.5}
+.ucl-bracket{display:grid;grid-template-columns:repeat(5,minmax(155px,1fr));gap:10px;overflow:auto;margin:16px 0;padding:14px;background:radial-gradient(ellipse at center,#3421a0,#100b54 75%);border:1px solid #5949d0;border-radius:10px}
+.ucl-bracket-title{grid-column:1/-1;text-align:center;color:#fff;font-weight:900;letter-spacing:2px}.ucl-bracket-col h4{text-align:center;color:#b9caff;font-size:11px;text-transform:uppercase}
+.ucl-tie{background:#e5f3ff;color:#17264a;border-radius:6px;padding:8px;margin:8px 0;font-size:10px;line-height:1.5;min-height:52px}.ucl-tie>div{display:flex;align-items:center;gap:5px}.ucl-tie img{width:17px;height:17px;object-fit:contain}.ucl-tie small{display:block;color:#445578;margin-top:4px}
+.ucl-pending{color:#9eb5ff;text-align:center;font-size:11px;padding:18px 4px}.ucl-champion{background:#e6c85b;color:#18204a;border-radius:7px;padding:10px;text-align:center;font-weight:900;font-size:12px}
+@media(max-width:760px){.ucl-layout{grid-template-columns:1fr}.ucl-head{align-items:flex-start;flex-direction:column}.ucl-table{font-size:10px}.ucl-table td,.ucl-table th{padding:6px 5px}.ucl-bracket{grid-template-columns:repeat(5,155px)}}
 </style></head><body><div class="app"><header class="top"><div class="brand">CAREER <span>AGENT</span></div><div class="topmeta"><span id="dateTop">Simulador de empresário</span><span class="hide" id="saveStatus">Salvamento local</span><button id="homeButton" onclick="returnMainMenu()" style="display:none">⌂ Menu principal</button><button id="saveButton" onclick="saveGame()" style="display:none">Salvar</button></div></header><div class="layout"><aside id="nav"></aside><main class="main" id="main"></main></div><div class="footer">CAREER AGENT • Simulador de empresário de futebol • Dados demonstrativos • Escudos: EscudosFC / Wikimedia Commons • Salvamento local no navegador</div></div>
 <script>
 const fmt=n=>'€ '+Math.round(Number(n||0)*100000).toLocaleString('pt-BR');
@@ -293,16 +313,124 @@ const southAmericanPool=[
 'Newell’s Old Boys','Huracán','Defensa y Justicia','Argentinos Juniors'
 ];
 function continentalEuropePool(){const keys=['Premier League','La Liga','Serie A Italiana','Bundesliga','Ligue 1','Liga Portugal','Eredivisie'];return [...new Set(keys.flatMap(k=>leagueTeams[k]||[]))].sort((a,b)=>(clubPowerRaw[b]?.v??65)-(clubPowerRaw[a]?.v??65)||a.localeCompare(b));}
-function continentalSeeds(){const europe=continentalEuropePool();const south=[...new Set([...(leagueTeams['Campeonato Brasileiro Série A']||[]),...southAmericanPool])].filter(n=>!europe.includes(n));const sortPower=(a,b)=>(clubPowerRaw[b]?.v??64)-(clubPowerRaw[a]?.v??64)||a.localeCompare(b);const e=europe.sort(sortPower),sa=south.sort(sortPower);return {ucl:e.slice(0,32),uel:e.slice(32,64),uecl:e.slice(64,96),lib:sa.slice(0,32),sud:sa.slice(32,64)};}
+function continentalSeeds(){const europe=continentalEuropePool();const south=[...new Set([...(leagueTeams['Campeonato Brasileiro Série A']||[]),...southAmericanPool])].filter(n=>!europe.includes(n));const sortPower=(a,b)=>(clubPowerRaw[b]?.v??64)-(clubPowerRaw[a]?.v??64)||a.localeCompare(b);const e=europe.sort(sortPower),sa=south.sort(sortPower);return {ucl:e.slice(0,36),uel:e.slice(36,68),uecl:e.slice(68,100),lib:sa.slice(0,32),sud:sa.slice(32,64)};}
 function makeContinentalTournament(id,teams){const sorted=teams.slice();const groups=Array.from({length:8},(_,i)=>({name:String.fromCharCode(65+i),teams:[],table:[]}));sorted.forEach((team,i)=>{const band=Math.floor(i/8),slot=i%8,gi=band%2?7-slot:slot;groups[gi].teams.push(team)});groups.forEach(g=>{g.table=g.teams.map(team=>({team,j:0,w:0,d:0,l:0,gf:0,ga:0,pts:0}));});const calendarWeeks=S.week===0?[4,8,12,16,20,24,28,32,36,38]:Array.from({length:10},(_,i)=>{const start=Math.min(38,S.week+1),span=38-start;return Math.min(38,start+Math.floor(i*span/9));});return {id,name:continentalNames[id],teams:sorted,groups,calendarWeeks,groupMatchday:0,stage:'groups',knockoutRound:0,knockoutMatches:[],matches:[],champion:null,runnerUp:null,completed:false};}
-function ensureContinentalSeason(){if(S.continental?.year===S.seasonYear)return;const seeds=continentalSeeds();S.continental={year:S.seasonYear,competitions:{}};Object.keys(continentalNames).forEach(id=>{const pool=seeds[id]||[];S.continental.competitions[id]=makeContinentalTournament(id,pool.slice(0,32));});}
+
+function makeUclLeaguePhase(teams){
+ const sorted=teams.slice(0,36);
+ const table=sorted.map(team=>({team,j:0,w:0,d:0,l:0,gf:0,ga:0,pts:0}));
+ const calendarWeeks=[4,8,12,16,20,24,28,32];
+ return {id:'ucl',name:continentalNames.ucl,format:'leaguephase',teams:sorted,table,calendarWeeks,matchday:0,fixtures:[],stage:'league',playoffTies:[],roundOf16Ties:[],quarterTies:[],semiTies:[],finalMatch:null,matches:[],champion:null,runnerUp:null,completed:false};
+}
+function makeUclMatchdays(teams){
+ const rounds=Array.from({length:8},()=>[]);
+ const used=new Set();
+ for(let r=0;r<8;r++){
+  const pool=teams.slice();
+  // Randomized round pairing, avoiding opponents already met
+  while(pool.length>1){
+   const home=pool.shift();
+   let idx=pool.findIndex(away=>!used.has([home,away].sort().join('|')));
+   if(idx<0)idx=0;
+   const away=pool.splice(idx,1)[0];
+   used.add([home,away].sort().join('|'));
+   rounds[r].push([home,away]);
+  }
+ }
+ return rounds;
+}
+function ensureUclFormat(t){
+ if(!t||t.format==='leaguephase')return t;
+ const teams=(t.teams||[]).slice(0,36);
+ if(teams.length<36){const pool=continentalEuropePool().filter(x=>!teams.includes(x));teams.push(...pool.slice(0,36-teams.length));}
+ return makeUclLeaguePhase(teams);
+}
+function uclSort(table){return table.slice().sort((a,b)=>b.pts-a.pts||(b.gf-b.ga)-(a.gf-a.ga)||b.gf-a.gf||a.team.localeCompare(b.team));}
+function uclMakeTie(t,a,b,round,week){
+ const leg1=continentalResult(t,a,b,round+' • ida');
+ const leg2=continentalResult(t,b,a,round+' • volta');
+ const aggA=(leg1.homeGoals+leg2.awayGoals),aggB=(leg1.awayGoals+leg2.homeGoals);
+ let winner=aggA>aggB?a:aggB>aggA?b:(Math.random()<.5?a:b);
+ return {a,b,leg1,leg2,aggA,aggB,winner,week};
+}
+function uclLeagueWeek(t){
+ if(!t.fixtures.length)t.fixtures=makeUclMatchdays(t.teams);
+ const md=t.matchday,fixtures=t.fixtures[md]||[];
+ fixtures.forEach(([home,away])=>{
+  const m=continentalResult(t,home,away,'Fase de liga • Rodada '+(md+1));
+  updateContinentalTable(t.table,home,away,m.homeGoals,m.awayGoals);
+ });
+ t.matchday++;
+ if(t.matchday>=8){
+  const rank=uclSort(t.table);
+  t.directRoundOf16=rank.slice(0,8).map(x=>x.team);
+  t.playoffSeeds=rank.slice(8,24).map(x=>x.team);
+  t.eliminated=rank.slice(24).map(x=>x.team);
+  t.stage='playoff';
+ }
+}
+function uclAdvanceKnockout(t){
+ const rank=uclSort(t.table);
+ if(t.stage==='playoff'){
+  // 9th–16th against 17th–24th, reverse order for a seeded bracket
+  const ties=[];
+  for(let i=0;i<8;i++)ties.push(uclMakeTie(t,rank[8+i].team,rank[23-i].team,'Playoff de acesso às oitavas',S.week));
+  t.playoffTies=ties;t.stage='round16';
+ }else if(t.stage==='round16'){
+  const winners=t.playoffTies.map(x=>x.winner);
+  // Top eight meet the eight playoff winners
+  const ties=[];
+  for(let i=0;i<8;i++)ties.push(uclMakeTie(t,t.directRoundOf16[i],winners[7-i],'Oitavas de final',S.week));
+  t.roundOf16Ties=ties;t.stage='quarter';
+ }else if(t.stage==='quarter'){
+  const winners=t.roundOf16Ties.map(x=>x.winner),ties=[];
+  for(let i=0;i<8;i+=2)ties.push(uclMakeTie(t,winners[i],winners[i+1],'Quartas de final',S.week));
+  t.quarterTies=ties;t.stage='semi';
+ }else if(t.stage==='semi'){
+  const winners=t.quarterTies.map(x=>x.winner),ties=[];
+  for(let i=0;i<4;i+=2)ties.push(uclMakeTie(t,winners[i],winners[i+1],'Semifinal',S.week));
+  t.semiTies=ties;t.stage='final';
+ }else if(t.stage==='final'){
+  const finalists=t.semiTies.map(x=>x.winner);
+  if(finalists.length===2){
+   const m=continentalResult(t,finalists[0],finalists[1],'Final', 'single');
+   t.finalMatch=m;t.champion=m.winner;t.runnerUp=m.winner===m.home?m.away:m.home;
+  }
+  t.stage='completed';t.completed=true;
+  log(`${t.name}: ${t.champion} é o campeão da temporada ${S.seasonYear}!`);
+ }
+}
+function uclBracketMarkup(t){
+ const rounds=[
+  ['Playoffs',t.playoffTies||[]],
+  ['Oitavas',t.roundOf16Ties||[]],
+  ['Quartas',t.quarterTies||[]],
+  ['Semifinais',t.semiTies||[]]
+ ];
+ const col=(name,ties)=>`<div class="ucl-bracket-col"><h4>${name}</h4>${ties.length?ties.map(x=>`<div class="ucl-tie"><div>${clubBadge(x.a,t.name)} ${x.a}</div><div>${clubBadge(x.b,t.name)} ${x.b}</div><small>Agregado ${x.aggA}–${x.aggB} • ${x.winner}</small></div>`).join(''):'<div class="ucl-pending">Aguardando classificação</div>'}</div>`;
+ return `<div class="ucl-bracket"><div class="ucl-bracket-title">CAMINHO ATÉ A FINAL</div>${rounds.map(([n,x])=>col(n,x)).join('')}<div class="ucl-bracket-col"><h4>Final</h4><div class="ucl-tie">${t.finalMatch?`${t.finalMatch.home} ${t.finalMatch.homeGoals}–${t.finalMatch.awayGoals} ${t.finalMatch.away}`:'Aguardando semifinal'}</div>${t.champion?`<div class="ucl-champion">🏆 ${t.champion}</div>`:''}</div></div>`;
+}
+function uclPageCard(t){
+ const rank=uclSort(t.table),zone=(i)=>i<8?'ucl-direct':i<24?'ucl-playoff':'ucl-out';
+ const table=`<div class="ucl-table-wrap"><table class="ucl-table"><thead><tr><th>POS</th><th>CLUBE</th><th>J</th><th>SG</th><th>PTS</th></tr></thead><tbody>${rank.map((x,i)=>`<tr class="${zone(i)}"><td>${i+1}</td><td><span class="ucl-club">${clubBadge(x.team,t.name)||continentalFallbackBadge(x.team)}<strong>${x.team}</strong></span></td><td>${x.j}</td><td>${x.gf-x.ga}</td><td><b>${x.pts}</b></td></tr>`).join('')}</tbody></table></div>`;
+ const legend=`<div class="ucl-legend"><span><i class="direct"></i>1º–8º Oitavas</span><span><i class="playoff"></i>9º–24º Playoff</span><span><i class="out"></i>25º–36º Eliminados</span></div>`;
+ const status=t.completed?`Campeão: ${t.champion}`:t.stage==='league'?`Fase de liga • ${t.matchday}/8 rodadas`:({playoff:'Playoffs de acesso às oitavas',round16:'Oitavas de final',quarter:'Quartas de final',semi:'Semifinais',final:'Final'}[t.stage]||'Concluída');
+ return `<section class="card ucl-card"><div class="ucl-head"><div><div class="eyebrow">UEFA • NOVO FORMATO</div><h2>${t.name}</h2><p>${status} • 36 clubes • 8 jogos por equipe</p></div>${t.champion?`<div class="pill green">🏆 ${t.champion}</div>`:''}</div><div class="ucl-layout"><div>${table}${legend}</div><aside class="ucl-side"><h3>Formato da competição</h3><p>Todos os 36 clubes disputam uma tabela única. Cada equipe joga oito partidas contra adversários diferentes.</p><p><b>1º ao 8º:</b> classificação direta às oitavas.</p><p><b>9º ao 24º:</b> disputam os playoffs em ida e volta.</p><p><b>25º ao 36º:</b> eliminados.</p></aside></div>${t.matchday>=8?uclBracketMarkup(t):''}<div class="muted small">Últimos resultados: ${t.matches.slice(-8).reverse().map(m=>`${m.home} ${m.homeGoals}–${m.awayGoals} ${m.away}`).join(' • ')||'temporada ainda não começou'}</div></section>`;
+}
+function ensureContinentalSeason(){const seeds=continentalSeeds();if(S.continental?.year===S.seasonYear){S.continental.competitions=S.continental.competitions||{};if(S.continental.competitions.ucl)S.continental.competitions.ucl=ensureUclFormat(S.continental.competitions.ucl);else S.continental.competitions.ucl=makeUclLeaguePhase(seeds.ucl);return;}S.continental={year:S.seasonYear,competitions:{}};Object.keys(continentalNames).forEach(id=>{const pool=seeds[id]||[];S.continental.competitions[id]=id==='ucl'?makeUclLeaguePhase(pool):makeContinentalTournament(id,pool.slice(0,32));});}
 function continentalGroupFixtures(group,round){return roundRobin(group.teams)[round]||[];}
 function updateContinentalTable(table,home,away,hg,ag){const h=table.find(t=>t.team===home),a=table.find(t=>t.team===away);if(!h||!a)return;h.j++;a.j++;h.gf+=hg;h.ga+=ag;a.gf+=ag;a.ga+=hg;if(hg>ag){h.w++;a.l++;h.pts+=3}else if(hg<ag){a.w++;h.l++;a.pts+=3}else{h.d++;a.d++;h.pts++;a.pts++;}}
 function continentalResult(t,home,away,round,leg=''){const score=realisticMatchScore(home,away,'Continental');let winner=score.homeGoals>score.awayGoals?home:score.awayGoals>score.homeGoals?away:(Math.random()<.5?home:away);const match={season:S.seasonYear,week:S.week,competition:t.name,round,home,away,homeGoals:score.homeGoals,awayGoals:score.awayGoals,winner,decidedOnPenalties:score.homeGoals===score.awayGoals};t.matches.push(match);return match;}
 function simulateContinentalWeek(){
  if(S.week<1||S.week>38)return;
  ensureContinentalSeason();
- Object.values(S.continental.competitions).forEach(t=>{
+ const ucl=S.continental.competitions.ucl;
+ if(ucl&&!ucl.completed){
+  if(ucl.stage==='league'&&ucl.calendarWeeks[ucl.matchday]===S.week)uclLeagueWeek(ucl);
+  const knockoutWeeks={playoff:33,round16:34,quarter:35,semi:36,final:37};
+  if(knockoutWeeks[ucl.stage]===S.week)uclAdvanceKnockout(ucl);
+ }
+ Object.values(S.continental.competitions).filter(t=>t.id!=='ucl').forEach(t=>{
   let guard=0;
   while(!t.completed&&t.teams.length>=32&&guard<10){
    if(t.stage==='groups'){
@@ -331,7 +459,7 @@ function simulateContinentalWeek(){
 }
 function continentalFallbackBadge(name){const initials=String(name||'').replace(/\b(FC|SC|AC|CF|CD|CA|EC|SE|CR|CLUB)\b/gi,'').trim().split(/\s+/).slice(0,2).map(x=>x[0]||'').join('').toUpperCase();return `<span class="continental-fallback-crest" title="${name}">${initials||'FC'}</span>`;}
 function setContinentalFilter(value){S.continentalFilter=value||'all';autoSave();render();}
-function continentalPage(){ensureContinentalSeason();const allComps=Object.values(S.continental.competitions);const filter=S.continentalFilter||'all';const comps=filter==='all'?allComps:allComps.filter(t=>t.id===filter);const phase=t=>t.completed?'Concluída':t.stage==='groups'?`Fase de grupos • ${t.groupMatchday}/6 rodadas`:`Mata-mata • ${t.knockoutRound}/4 fases`;const options=[['all','Todas as competições'],...Object.entries(continentalNames).map(([id,name])=>[id,name])];return head('Torneios internacionais','Competições continentais','Filtre uma competição para consultar seus grupos, classificação e resultados.')+`<div class="grid stats">${stat('Competições',5,'Europa e América do Sul')}${stat('Clubes por torneio','32','8 grupos de 4')}${stat('Formato','Grupos + mata-mata','Oitavas, quartas, semi e final')}${stat('Temporada',S.seasonYear,'Atual')}</div><div class="card" style="margin:12px 0 16px"><div class="row" style="align-items:end;flex-wrap:wrap"><div style="flex:1;min-width:220px"><label for="continentalFilter">Selecionar competição</label><select id="continentalFilter" onchange="setContinentalFilter(this.value)">${options.map(([id,name])=>`<option value="${id}" ${filter===id?'selected':''}>${name}</option>`).join('')}</select></div><div class="muted small">${filter==='all'?'Exibindo todas as competições':`Exibindo: ${continentalNames[filter]||'Competição selecionada'}`}</div></div></div><div class="notice" style="margin:12px 0 16px">Os torneios começam automaticamente durante a temporada. Os participantes são definidos pela força dos clubes e pelas regiões.</div>${comps.map(t=>`<section class="card" style="margin-bottom:16px"><div class="row"><div><div class="eyebrow">${t.id==='ucl'||t.id==='uel'||t.id==='uecl'?'EUROPA':'AMÉRICA DO SUL'}</div><h2 style="margin:3px 0">${t.name}</h2><div class="muted small">${phase(t)} • ${t.teams.length} clubes</div></div>${t.champion?`<div class="pill green">🏆 ${t.champion}</div>`:''}</div>${t.stage==='groups'?`<div class="grid two" style="margin-top:12px">${t.groups.map(g=>{const rows=g.table.slice().sort((a,b)=>b.pts-a.pts||(b.gf-b.ga)-(a.gf-a.ga)||b.gf-a.gf);return `<div class="card" style="padding:10px"><strong>Grupo ${g.name}</strong><div class="tablewrap"><table><thead><tr><th>Clube</th><th>J</th><th>SG</th><th>PTS</th></tr></thead><tbody>${rows.map((x,i)=>`<tr><td><span style="display:inline-flex;align-items:center;gap:7px">${clubBadge(x.team,t.name)||continentalFallbackBadge(x.team)}<span>${i<2?'<span class="green">● </span>':''}${x.team}</span></span></td><td>${x.j}</td><td>${x.gf-x.ga}</td><td><strong>${x.pts}</strong></td></tr>`).join('')}</tbody></table></div></div>`}).join('')}</div>`:`<div class="grid two" style="margin-top:12px">${t.groups.map(g=>`<div class="card" style="padding:10px"><strong>Grupo ${g.name}</strong><div class="muted small">${g.table.slice().sort((a,b)=>b.pts-a.pts).map(x=>`${clubBadge(x.team,t.name)||continentalFallbackBadge(x.team)} ${x.team}`).join(' • ')}</div></div>`).join('')}</div>`}<div style="margin-top:12px"><strong>Últimos resultados</strong><div class="tablewrap"><table><thead><tr><th>Fase</th><th>Mandante</th><th>Placar</th><th>Visitante</th></tr></thead><tbody>${t.matches.slice(-12).reverse().map(m=>`<tr><td>${m.round}</td><td>${m.home}</td><td><strong>${m.homeGoals}–${m.awayGoals}</strong>${m.decidedOnPenalties?' (pên.)':''}</td><td>${m.away}</td></tr>`).join('')||'<tr><td colspan="4" class="muted">Nenhuma partida disputada. Avance a temporada.</td></tr>'}</tbody></table></div></div>${t.runnerUp?`<div class="muted small" style="margin-top:8px">Vice-campeão: ${t.runnerUp}</div>`:''}</section>`).join('')}`;}
+function continentalPage(){ensureContinentalSeason();const allComps=Object.values(S.continental.competitions);const filter=S.continentalFilter||'all';const comps=filter==='all'?allComps:allComps.filter(t=>t.id===filter);const phase=t=>t.completed?'Concluída':t.stage==='groups'?`Fase de grupos • ${t.groupMatchday}/6 rodadas`:`Mata-mata • ${t.knockoutRound}/4 fases`;const options=[['all','Todas as competições'],...Object.entries(continentalNames).map(([id,name])=>[id,name])];return head('Torneios internacionais','Competições continentais','Filtre uma competição para consultar seus grupos, classificação e resultados.')+`<div class="grid stats">${stat('Competições',5,'Europa e América do Sul')}${stat('Clubes por torneio','32','8 grupos de 4')}${stat('Formato','Grupos + mata-mata','Oitavas, quartas, semi e final')}${stat('Temporada',S.seasonYear,'Atual')}</div><div class="card" style="margin:12px 0 16px"><div class="row" style="align-items:end;flex-wrap:wrap"><div style="flex:1;min-width:220px"><label for="continentalFilter">Selecionar competição</label><select id="continentalFilter" onchange="setContinentalFilter(this.value)">${options.map(([id,name])=>`<option value="${id}" ${filter===id?'selected':''}>${name}</option>`).join('')}</select></div><div class="muted small">${filter==='all'?'Exibindo todas as competições':`Exibindo: ${continentalNames[filter]||'Competição selecionada'}`}</div></div></div><div class="notice" style="margin:12px 0 16px">Os torneios começam automaticamente durante a temporada. Os participantes são definidos pela força dos clubes e pelas regiões.</div>${comps.map(t=>t.id==='ucl'?uclPageCard(t):`<section class="card" style="margin-bottom:16px"><div class="row"><div><div class="eyebrow">${t.id==='ucl'||t.id==='uel'||t.id==='uecl'?'EUROPA':'AMÉRICA DO SUL'}</div><h2 style="margin:3px 0">${t.name}</h2><div class="muted small">${phase(t)} • ${t.teams.length} clubes</div></div>${t.champion?`<div class="pill green">🏆 ${t.champion}</div>`:''}</div>${t.stage==='groups'?`<div class="grid two" style="margin-top:12px">${t.groups.map(g=>{const rows=g.table.slice().sort((a,b)=>b.pts-a.pts||(b.gf-b.ga)-(a.gf-a.ga)||b.gf-a.gf);return `<div class="card" style="padding:10px"><strong>Grupo ${g.name}</strong><div class="tablewrap"><table><thead><tr><th>Clube</th><th>J</th><th>SG</th><th>PTS</th></tr></thead><tbody>${rows.map((x,i)=>`<tr><td><span style="display:inline-flex;align-items:center;gap:7px">${clubBadge(x.team,t.name)||continentalFallbackBadge(x.team)}<span>${i<2?'<span class="green">● </span>':''}${x.team}</span></span></td><td>${x.j}</td><td>${x.gf-x.ga}</td><td><strong>${x.pts}</strong></td></tr>`).join('')}</tbody></table></div></div>`}).join('')}</div>`:`<div class="grid two" style="margin-top:12px">${t.groups.map(g=>`<div class="card" style="padding:10px"><strong>Grupo ${g.name}</strong><div class="muted small">${g.table.slice().sort((a,b)=>b.pts-a.pts).map(x=>`${clubBadge(x.team,t.name)||continentalFallbackBadge(x.team)} ${x.team}`).join(' • ')}</div></div>`).join('')}</div>`}<div style="margin-top:12px"><strong>Últimos resultados</strong><div class="tablewrap"><table><thead><tr><th>Fase</th><th>Mandante</th><th>Placar</th><th>Visitante</th></tr></thead><tbody>${t.matches.slice(-12).reverse().map(m=>`<tr><td>${m.round}</td><td>${m.home}</td><td><strong>${m.homeGoals}–${m.awayGoals}</strong>${m.decidedOnPenalties?' (pên.)':''}</td><td>${m.away}</td></tr>`).join('')||'<tr><td colspan="4" class="muted">Nenhuma partida disputada. Avance a temporada.</td></tr>'}</tbody></table></div></div>${t.runnerUp?`<div class="muted small" style="margin-top:8px">Vice-campeão: ${t.runnerUp}</div>`:''}</section>`).join('')}`;}
 
 function finalizeSeason(){S.seasonHistory=S.seasonHistory||[];const movement={year:S.seasonYear,leagues:{},champions:{},continental:{}};S.leagues.forEach(l=>{const sorted=getStandings(l).slice().sort((x,y)=>y.pts-x.pts||(y.gf-y.ga)-(x.gf-x.ga)||y.gf-x.gf);movement.leagues[l]=sorted.map((t,i)=>({team:t.team,position:i+1,pts:t.pts,played:t.j,w:t.w,d:t.d,l:t.l,gf:t.gf,ga:t.ga,gd:t.gf-t.ga}));if(sorted.length)movement.champions[l]={champion:sorted[0].team,runnerUp:sorted[1]?.team||'—',points:sorted[0].pts};});Object.values(S.continental?.competitions||{}).forEach(t=>{if(t.champion){movement.continental[t.name]={champion:t.champion,runnerUp:t.runnerUp||'—'};movement.champions[t.name]={champion:t.champion,runnerUp:t.runnerUp||'—'};}});const a='Campeonato Brasileiro Série A',b='Campeonato Brasileiro Série B';if(movement.leagues[a]&&movement.leagues[b]){movement.relegated=movement.leagues[a].slice(-4).map(x=>x.team);movement.promoted=movement.leagues[b].slice(0,4).map(x=>x.team);log(`Fim da temporada ${S.seasonYear}: acesso ${movement.promoted.join(', ')}; rebaixamento ${movement.relegated.join(', ')}.`);}S.seasonHistory.unshift(movement);S.seasonHistory=S.seasonHistory.slice(0,50);S.seasonFinalizedYear=S.seasonYear;log(`Campeões de ${S.seasonYear} registrados para ${Object.keys(movement.champions).length} competição(ões).`);log(`Classificações finais da temporada ${S.seasonYear} arquivadas para todas as ligas acompanhadas.`);}
 function championsPage(){const records=(S.seasonHistory||[]).slice().sort((a,b)=>b.year-a.year);const leaguesShown=[...new Set([...(S.leagues||[]),...records.flatMap(r=>Object.keys(r.champions||r.leagues||{}))])];const championOf=(record,league)=>{const saved=record.champions?.[league];if(saved?.champion)return saved;const table=record.leagues?.[league]||[];return table.length?{champion:table[0].team,runnerUp:table[1]?.team||'—',points:table[0].pts}:null};return head('Memória das competições','Histórico de campeões','Todos os campeões e vice-campeões das ligas nacionais e competições continentais, temporada por temporada.')+`<div class="grid stats">${stat('Temporadas arquivadas',records.length,'Histórico salvo na carreira')}${stat('Competições acompanhadas',leaguesShown.length,'Ligas selecionadas')}${stat('Última temporada concluída',records[0]?.year||'—','Temporada mais recente')}${stat('Campeões registrados',records.reduce((n,r)=>n+Object.keys(r.champions||r.leagues||{}).filter(l=>championOf(r,l)).length,0),'Títulos arquivados')}</div>${records.length?records.map(record=>`<section class="card" style="margin-bottom:14px"><div class="row" style="margin-bottom:12px"><h2 style="margin:0">Temporada ${record.year}</h2><span class="pill">Concluída</span></div><div class="grid three">${leaguesShown.map(league=>{const c=championOf(record,league);return c?`<div style="background:#0c1728;border:1px solid var(--line);border-radius:11px;padding:12px"><div class="eyebrow" style="margin-bottom:8px">${league.replace('Campeonato Brasileiro','Brasileirão')}</div><div style="display:flex;align-items:center;gap:9px">${clubBadge(c.champion,league)}<div><strong>${c.champion}</strong><div class="small green">CAMPEÃO</div></div></div><div class="muted small" style="margin-top:9px">Vice: ${c.runnerUp||'—'}${c.points!==undefined?' • '+c.points+' pts':''}</div></div>`:''}).join('')}</div></section>`).join(''):'<div class="card empty">Nenhum campeão registrado ainda. Ao concluir a primeira temporada (38ª rodada), os campeões e vice-campeões serão salvos automaticamente aqui.</div>'}<div class="notice">O histórico é atualizado automaticamente no encerramento de cada temporada e permanece salvo junto com sua carreira.</div>`}
